@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>HRRN</title>
+</head>
+
+<body>
+
+    <h1>Highest Response Ratio Next</h1>
+
+    <table>
+        <thead>
+            <tr class="topic">
+                <td>name</td>
+                <td>Arrival Time</td>
+                <td>Burst Time</td>
+                <td>TurnAround Time</td>
+                <td>Waiting Time</td>
+                <td>normalized TT</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <form>
+                <tr>
+                    <td class="name" id="name1">A</td>
+                    <td id="at1"><input id="input" type="text" name="at[]" value=""></td>
+                    <td id="bt1"><input id="input" type="text" name="bt[]" value=""></td>
+                    <td id="wait1"></td>
+                    <td id="turn1"></td>
+                    <td id="norma1"></td>
+                </tr>
+
+                <tr>
+                    <td class="name" id="name2">B</td>
+                    <td id="at2"><input id="input" type="text" name="at[]" value=""></td>
+                    <td id="bt2"><input id="input" type="text" name="bt[]" value=""></td>
+                    <td id="wait2"></td>
+                    <td id="turn2"></td>
+                    <td id="norma2"></td>
+                </tr>
+
+                <tr>
+                    <td class="name" id="name3">C</td>
+                    <td id="at3"><input id="input" type="text" name="at[]" value=""></td>
+                    <td id="bt3"><input id="input" type="text" name="bt[]" value=""></td>
+                    <td id="wait3"></td>
+                    <td id="turn3"></td>
+                    <td id="norma3"></td>
+                </tr>
+
+                <tr>
+                    <td class="name" id="name4">D</td>
+                    <td id="at4"><input id="input" type="text" name="at[]" value=""></td>
+                    <td id="bt4"><input id="input" type="text" name="bt[]" value=""></td>
+                    <td id="wait4"></td>
+                    <td id="turn4"></td>
+                    <td id="norma4"></td>
+                </tr>
+
+                <tr>
+                    <td class="name" id="name5">E</td>
+                    <td id="at5"><input id="input" type="text" name="at[]" value=""></td>
+                    <td id="bt5"><input id="input" type="text" name="bt[]" value=""></td>
+                    <td id="wait5"></td>
+                    <td id="turn5"></td>
+                    <td id="norma5"></td>
+                </tr>
+
+               
+            </form>
+        </tbody>
+    </table>
+    <button type="button" name="button" class="right">Submit</button>
+    <p id="avgWait">Average waiting time: </p>
+    <p id="avgTurn">Average Turn Around time: </p>
+</body>
+
+</html>

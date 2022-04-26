@@ -1,0 +1,34 @@
+* {
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+  
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+input {
+    border: none;
+    outline:none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+}
+
+p {
+    margin-right: 43rem;
+}
+
+.right{
+    position: absolute;
+    margin-top: 1rem;
+    left:69.7rem;
+}
