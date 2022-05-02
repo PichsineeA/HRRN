@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>HRRM</title>
+
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+   <link rel="stylesheet" href="hrrn.css">
+
+   <script src="hrrn.js" defer></script>
+   
+</head>
+<body>
+
+   <main>
+      <div class="input">
+
+         <h1 style="text-align: center;">Input</h1>
+   
+         <!-- form-submit function -->
+         <form action="#" class="input__form" onsubmit="button(event)">
+
+            <label>Algorithm</label>
+
+            <select name="selector" id="select" class="input__form__input" onchange="checkAlgo()">
+               <option value="HRRN">HRRN</option>
+               <option value="HRRN_RR">HRRN RR</option>
+            </select>
+            
+            <label>Arrival Times</label>
+            <input type="text"  id="ArrivalTimes" name="ArrivalTimes" class="input__form__input" placeholder="e.g. 0 2 4 6">
+   
+            <label>Burst Times</label>
+            <input type="text"  id="BurstTimes" name="BurstTimes" class="input__form__input" placeholder="e.g. 2 4 6 8">
+
+            <div id="TimeQT"></div>
+
+            <script>
+
+               // check algorithm HRRN RR or noRR
+               const checkAlgo=()=>{
+                  if(document.getElementById('select').value == "HRRN"){
+                     if(document.getElementById('qt') != null){
+                        document.querySelector('.Quanntum_time').remove();
+                        document.getElementById('qt').remove();
+                     }
+                  }
+                  else if(document.getElementById('select').value == "HRRN_RR"){
+   
+                     if(document.getElementById('qt') == null){
+                        const label = document.createElement('label');
+                        label.textContent = "Quanntum time"
+                        label.className = "Quanntum_time"
+                        const input = document.createElement('input');
+                        input.type = "text";
+                        input.placeholder = "eg. 2"
+                        input.className = "input__form__input";
+                        input.id = "qt";
+   
+                        document.getElementById('TimeQT').appendChild(label);
+                        document.getElementById('TimeQT').appendChild(input);
+                     }
+                  }
+                  else{
+                     console.log("Emtpy");
+                  }
+               }
+   
+               const button=(event)=>{
+
+                     event.preventDefault()
+
+                     // check case 1 
+                     if(document.getElementById('select').value == "HRRN"){
+                        console.log("HRRN");
+                        return getDataHRRN();
+                     }
+                     else if(document.getElementById('select').value == "HRRN_RR"){
+                        console.log("HRRN_RR");
+                        console.log(document.getElementById('qt').value)
+                        return getDataHRRN_RR(document.getElementById('qt').value);
+                     }
+                     else{
+                        alert('again pls');
+                     }
+                  }
+            
+            </script>
+            <div style="text-align: center;">
+               <button class="input__form__button"> Solve </button>
+            </div>
+            
+         </form>
+
+
+         
+      </div>
+   
+      <div class="output">
+         <h1 style="text-align: center;">Output</h1>   
+         <table id = 'gantt' class="gantt" style="display: none;">
+            <h3 style="text-align: center;">We will show Gantt chart and Table</h3>
+
+             <!-- table head -->
+             <thead>
+               <tr>
+                  <th>Gantt chart</th>
+               </tr>
+            </thead>
+            
+            <!--Gantt body -->
+            <tbody id="gtbody">
+               <tr class="gt">   
+               </tr>
+            </tbody>
+
+         </table>
+         <br>
+
+         <table id = 'table' class="table" style="display: none;">
+
+            <!-- table head -->
+            <thead>
+               <tr>
+                  <th>Process</th>
+                  <th>Arrival Time</th>
+                  <th>Burst Time</th>
+                  <th>Completion Time</th>
+                  <th>Turn around Time</th>
+                  <th>Waiting Time</th>
+               </tr>
+            </thead>
+
+            <!-- table body -->
+            <tbody id="tbody">
+               <tr class="tr">
+               </tr>
+            </tbody>
+
+         </table>
+
+         <div id="container-awwt" class="container-awwt">
+            <h4>average waiting time = </h4>
+            <div id="container-awwt-inner">
+            </div>
+         </div>
+         <div  id="container-awtt" class="container-awtt">
+            <h4>average turn around time = </h4>
+            <div id="container-awtt-inner">
+            </div>
+         </div>
+      </div>
+   </main>
+   
+</body>
+</html>
